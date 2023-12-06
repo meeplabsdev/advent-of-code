@@ -2,10 +2,6 @@ f = open("input.txt", "rt")
 
 total = 0
 
-red_max = 12
-green_max = 13
-blue_max = 14
-
 for line in f:
     # Setup and convert to json data
 
@@ -31,9 +27,14 @@ for line in f:
         red_total = max(draw["red"], red_total)
         green_total = max(draw["green"], green_total)
         blue_total = max(draw["blue"], blue_total)
+    
+    power = red_total * green_total * blue_total
 
-    if (red_total <= red_max) and (green_total <= green_max) and (blue_total <= blue_max):
-        total += game_id
+    print(f"{game_id}:")
+    print(power)
+    print()
+
+    total += power
 
 print(f"The total is {total}")
 f.close()
